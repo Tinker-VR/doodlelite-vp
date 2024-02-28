@@ -1,0 +1,7 @@
+https://api.figma.com/v1/me
+{
+    "id": "1032817996558174531",
+    "email": "loward@tinkerstudio.io",
+    "handle": "Lou Ward",
+    "img_url": "https://www.gravatar.com/avatar/4eb386a1e6726497ff5f10b463450bda?size=240&default=https%3A%2F%2Fs3-alpha.figma.com%2Fstatic%2Fuser_l_v2.png"
+}

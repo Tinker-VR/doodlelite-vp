@@ -1,0 +1,7 @@
+https://www.figma.com/api/oauth/token?client_id=LaB1ONuPoY7QCdfshDbQbT&client_secret=E9PblceydtAyE7Onhg5FHLmnvingDp&redirect_uri=http://localhost:1923/&code=eXsaGmSThLzZNN0r8CO3x6uMj&grant_type=authorization_code
+{
+    "user_id": 1032817996558174531,
+    "access_token": "figu_RHqRQlIlL8mt5w-Y4_sgjaoCTdcMOo1zObViBcg3",
+    "refresh_token": "figur_sCQVm9IKNM4Bg3PN6jYQwpoDMkGainNvKBnC_SAo1M0_6JrGGbNj1g",
+    "expires_in": 7776000
+}

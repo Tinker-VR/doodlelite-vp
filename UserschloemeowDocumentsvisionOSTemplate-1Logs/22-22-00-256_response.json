@@ -1,0 +1,258 @@
+https://api.figma.com/v1/files/yyULD6JMJTAemL7N3hcrwm?depth=2&plugin_data=shared
+{
+    "document": {
+        "id": "0:0",
+        "name": "Document",
+        "type": "DOCUMENT",
+        "scrollBehavior": "SCROLLS",
+        "children": [
+            {
+                "id": "0:1",
+                "name": "Page 1",
+                "type": "CANVAS",
+                "scrollBehavior": "SCROLLS",
+                "children": [
+                    {
+                        "id": "0:364",
+                        "name": "Tab Bar",
+                        "type": "INSTANCE",
+                        "scrollBehavior": "SCROLLS",
+                        "blendMode": "PASS_THROUGH",
+                        "children": [
+                            
+                        ],
+                        "absoluteBoundingBox": {
+                            "x": 384.0,
+                            "y": 295.0,
+                            "width": 150.0,
+                            "height": 224.0
+                        },
+                        "absoluteRenderBounds": {
+                            "x": 384.0,
+                            "y": 295.0,
+                            "width": 150.0,
+                            "height": 224.0
+                        },
+                        "constraints": {
+                            "vertical": "TOP",
+                            "horizontal": "LEFT"
+                        },
+                        "layoutSizingHorizontal": "HUG",
+                        "layoutSizingVertical": "HUG",
+                        "clipsContent": false,
+                        "background": [
+                            {
+                                "opacity": 0.30000001192092896,
+                                "blendMode": "LUMINOSITY",
+                                "type": "SOLID",
+                                "color": {
+                                    "r": 0.50,
+                                    "g": 0.50,
+                                    "b": 0.50,
+                                    "a": 1.0
+                                }
+                            }
+                        ],
+                        "fills": [
+                            {
+                                "opacity": 0.30000001192092896,
+                                "blendMode": "LUMINOSITY",
+                                "type": "SOLID",
+                                "color": {
+                                    "r": 0.50,
+                                    "g": 0.50,
+                                    "b": 0.50,
+                                    "a": 1.0
+                                }
+                            }
+                        ],
+                        "strokes": [
+                            {
+                                "blendMode": "NORMAL",
+                                "type": "GRADIENT_LINEAR",
+                                "gradientHandlePositions": [
+                                    {
+                                        "x": -0.32352945627584484,
+                                        "y": 0.088414638224527553
+                                    },
+                                    {
+                                        "x": 1.6544118033887789,
+                                        "y": 0.87500000091593033
+                                    },
+                                    {
+                                        "x": -3.6283016185398123,
+                                        "y": 0.44558807034264170
+                                    }
+                                ],
+                                "gradientStops": [
+                                    {
+                                        "color": {
+                                            "r": 1.0,
+                                            "g": 1.0,
+                                            "b": 1.0,
+                                            "a": 0.40000000596046448
+                                        },
+                                        "position": 0.0
+                                    },
+                                    {
+                                        "color": {
+                                            "r": 1.0,
+                                            "g": 1.0,
+                                            "b": 1.0,
+                                            "a": 9.9999997473787516e-05
+                                        },
+                                        "position": 0.36835160851478577
+                                    },
+                                    {
+                                        "color": {
+                                            "r": 1.0,
+                                            "g": 1.0,
+                                            "b": 1.0,
+                                            "a": 9.9999997473787516e-05
+                                        },
+                                        "position": 0.57437199354171753
+                                    },
+                                    {
+                                        "color": {
+                                            "r": 1.0,
+                                            "g": 1.0,
+                                            "b": 1.0,
+                                            "a": 0.10000000149011612
+                                        },
+                                        "position": 1.0
+                                    }
+                                ]
+                            }
+                        ],
+                        "cornerRadius": 34.0,
+                        "cornerSmoothing": 0.60000002384185791,
+                        "strokeWeight": 1.3999999761581421,
+                        "strokeAlign": "INSIDE",
+                        "backgroundColor": {
+                            "r": 0.50,
+                            "g": 0.50,
+                            "b": 0.50,
+                            "a": 0.30000001192092896
+                        },
+                        "styles": {
+                            "fills": "0:3",
+                            "fill": "0:3",
+                            "effect": "0:4"
+                        },
+                        "layoutMode": "VERTICAL",
+                        "itemSpacing": 8.0,
+                        "paddingLeft": 12.0,
+                        "paddingRight": 12.0,
+                        "paddingTop": 12.0,
+                        "paddingBottom": 12.0,
+                        "layoutWrap": "NO_WRAP",
+                        "effects": [
+                            {
+                                "type": "BACKGROUND_BLUR",
+                                "visible": true,
+                                "radius": 100.0
+                            }
+                        ],
+                        "componentId": "0:160",
+                        "exposedInstances": [
+                            "I0:364;121:93086",
+                            "I0:364;121:93087",
+                            "I0:364;121:93088",
+                            "I0:364;121:93089"
+                        ],
+                        "componentProperties": {
+                            "Tabs": {
+                                "value": "4",
+                                "type": "VARIANT",
+                                "boundVariables": {
+                                    
+                                }
+                            },
+                            "Selected": {
+                                "value": "1",
+                                "type": "VARIANT",
+                                "boundVariables": {
+                                    
+                                }
+                            },
+                            "Hover": {
+                                "value": "True",
+                                "type": "VARIANT",
+                                "boundVariables": {
+                                    
+                                }
+                            }
+                        },
+                        "overrides": [
+                            {
+                                "id": "0:364",
+                                "overriddenFields": [
+                                    "inheritFillStyleId",
+                                    "effects"
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "backgroundColor": {
+                    "r": 0.11764705926179886,
+                    "g": 0.11764705926179886,
+                    "b": 0.11764705926179886,
+                    "a": 1.0
+                },
+                "prototypeStartNodeID": null,
+                "flowStartingPoints": [
+                    
+                ],
+                "prototypeDevice": {
+                    "type": "NONE",
+                    "rotation": "NONE"
+                }
+            }
+        ]
+    },
+    "components": {
+        "0:160": {
+            "key": "60564649ea986c57c93c43fa238bbde323b6cad4",
+            "name": "Tabs=4, Selected=1, Hover=True",
+            "description": "",
+            "remote": true,
+            "componentSetId": "0:31",
+            "documentationLinks": [
+                
+            ]
+        }
+    },
+    "componentSets": {
+        "0:31": {
+            "key": "9f8206b5d3b5ac296de8f614c626e759ad30a32b",
+            "name": "Tab Bar",
+            "description": "",
+            "remote": true
+        }
+    },
+    "schemaVersion": 0,
+    "styles": {
+        "0:3": {
+            "key": "0c9794b5e26f8fc6648fa856ffaef3932308a814",
+            "name": "Windows/Glass",
+            "styleType": "FILL",
+            "remote": true,
+            "description": ""
+        },
+        "0:4": {
+            "key": "7bf21139d15bc44e13b0bfc883db4c4fab9cc98c",
+            "name": "Blur",
+            "styleType": "EFFECT",
+            "remote": true,
+            "description": ""
+        }
+    },
+    "name": "Untitled",
+    "lastModified": "2024-02-24T03:21:46Z",
+    "thumbnailUrl": "https://s3-alpha.figma.com/thumbnails/e492fd28-6a63-4c05-ad40-93a6061ccae9?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQ4GOSFWC74G4IQFZ%2F20240222%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20240222T000000Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=c1634c84193e86dea6e41ebb12096d78311a075abaad12136636b4f9b84c3cbc",
+    "version": "5215189114",
+    "role": "owner",
+    "editorType": "figma",
+    "linkAccess": "view"
+}

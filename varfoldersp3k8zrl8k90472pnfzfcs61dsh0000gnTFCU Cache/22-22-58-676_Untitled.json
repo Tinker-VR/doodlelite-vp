@@ -1,0 +1,114 @@
+{
+    "document": {
+        "id": "0:0",
+        "name": "Document",
+        "type": "DOCUMENT",
+        "scrollBehavior": "SCROLLS",
+        "children": [
+            {
+                "id": "0:1",
+                "name": "Page 1",
+                "type": "CANVAS",
+                "scrollBehavior": "SCROLLS",
+                "children": [
+                    {
+                        "id": "1:432",
+                        "name": "Frame 1",
+                        "type": "FRAME",
+                        "scrollBehavior": "SCROLLS",
+                        "blendMode": "PASS_THROUGH",
+                        "children": [
+                            
+                        ],
+                        "absoluteBoundingBox": {
+                            "x": 561.0,
+                            "y": 295.0,
+                            "width": 326.0,
+                            "height": 321.0
+                        },
+                        "absoluteRenderBounds": {
+                            "x": 561.0,
+                            "y": 295.0,
+                            "width": 326.0,
+                            "height": 321.0
+                        },
+                        "constraints": {
+                            "vertical": "TOP",
+                            "horizontal": "LEFT"
+                        },
+                        "clipsContent": true,
+                        "background": [
+                            {
+                                "blendMode": "NORMAL",
+                                "type": "SOLID",
+                                "color": {
+                                    "r": 1.0,
+                                    "g": 1.0,
+                                    "b": 1.0,
+                                    "a": 1.0
+                                }
+                            }
+                        ],
+                        "fills": [
+                            {
+                                "blendMode": "NORMAL",
+                                "type": "SOLID",
+                                "color": {
+                                    "r": 1.0,
+                                    "g": 1.0,
+                                    "b": 1.0,
+                                    "a": 1.0
+                                }
+                            }
+                        ],
+                        "strokes": [
+                            
+                        ],
+                        "strokeWeight": 1.0,
+                        "strokeAlign": "INSIDE",
+                        "backgroundColor": {
+                            "r": 1.0,
+                            "g": 1.0,
+                            "b": 1.0,
+                            "a": 1.0
+                        },
+                        "effects": [
+                            
+                        ]
+                    }
+                ],
+                "backgroundColor": {
+                    "r": 0.11764705926179886,
+                    "g": 0.11764705926179886,
+                    "b": 0.11764705926179886,
+                    "a": 1.0
+                },
+                "prototypeStartNodeID": null,
+                "flowStartingPoints": [
+                    
+                ],
+                "prototypeDevice": {
+                    "type": "NONE",
+                    "rotation": "NONE"
+                }
+            }
+        ]
+    },
+    "components": {
+        
+    },
+    "componentSets": {
+        
+    },
+    "schemaVersion": 0,
+    "styles": {
+        
+    },
+    "name": "Untitled",
+    "lastModified": "2024-02-24T03:22:56Z",
+    "thumbnailUrl": "https://s3-alpha.figma.com/thumbnails/75389ab3-015f-4bf8-935b-b2fba43bfc14?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQ4GOSFWC74G4IQFZ%2F20240222%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20240222T000000Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=199abe87435ad788d055a021240ff954beaa0bf6b51207734559b89750da1558",
+    "version": "5215189114",
+    "role": "owner",
+    "editorType": "figma",
+    "linkAccess": "view"
+}
