@@ -26,6 +26,7 @@ public class HandGestureHandler : MonoBehaviour
         }
         else
         {
+            Debug.Log("HandGestureHandler: Searching for HandSubsystem...");
             handSubsystem = GetHandSubsystem();
         }
     }
@@ -38,9 +39,11 @@ public class HandGestureHandler : MonoBehaviour
         {
             if (subsystem.running)
             {
+                Debug.Log("HandGestureHandler: Found HandSubsystem.");
                 return subsystem;
             }
         }
+        Debug.LogWarning("HandGestureHandler: No running HandSubsystem found.");
         return null;
     }
 
@@ -50,6 +53,8 @@ public class HandGestureHandler : MonoBehaviour
         {
             hand = subsystem.rightHand;
             bool currentlyPinching = IsPinching(out Vector3 pinchPosition);
+            
+            Debug.Log($"HandGestureHandler: Pinch Update. IsPinching: {currentlyPinching}, PinchPosition: {pinchPosition}");
 
             if (!isPinching && currentlyPinching)
             {

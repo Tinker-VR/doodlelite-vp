@@ -19,6 +19,11 @@ public class LiteDrawing : MonoBehaviour
             handGestureHandler.OnPinchDown += StartDrawing;
             handGestureHandler.OnPinch += AddPoint;
             handGestureHandler.OnPinchRelease += EndDrawing;
+            Debug.Log("LiteDrawing: Subscribed to HandGestureHandler events.");
+        }
+        else
+        {
+            Debug.LogError("LiteDrawing: HandGestureHandler reference is null.");
         }
     }
 
@@ -32,35 +37,48 @@ public class LiteDrawing : MonoBehaviour
         }
     }
 
-     private void Update()
+    private void Update()
     {
-        // if (currentLineRenderer != null)
-        // {
-        //     AddPoint(handGestureHandler.transform.position);
-        // }
     }
 
     public void StartDrawing(Vector3 startPosition)
     {
+        Debug.Log($"StartDrawing: Starting position: {startPosition}");
         GameObject lineObj = Instantiate(linePrefab, startPosition, Quaternion.identity);
         currentLineRenderer = lineObj.GetComponent<LineRenderer>();
+
+        if (currentLineRenderer == null)
+        {
+            Debug.LogError("StartDrawing: Failed to get LineRenderer component.");
+            return;
+        }
 
         currentLineRenderer.startWidth = lineWidth;
         currentLineRenderer.endWidth = lineWidth;
         currentLineRenderer.positionCount = 1;
         currentLineRenderer.SetPosition(0, startPosition);
+        Debug.Log("StartDrawing: Line initialized.");
     }
 
     public void AddPoint(Vector3 position)
     {
+        if (currentLineRenderer == null)
+        {
+            Debug.LogError("AddPoint: No current LineRenderer.");
+            return;
+        }
+
         if (currentLineRenderer == null || Vector3.Distance(currentLineRenderer.GetPosition(currentLineRenderer.positionCount - 1), position) < 0.001f) return;
 
+        Debug.Log($"AddPoint: Adding point. Position: {position}");
+        
         currentLineRenderer.positionCount++;
         currentLineRenderer.SetPosition(currentLineRenderer.positionCount - 1, position);
     }
 
     public void EndDrawing(Vector3 position)
     {
+        Debug.Log("EndDrawing: Drawing ended.");
         currentLineRenderer = null;
     }
 
