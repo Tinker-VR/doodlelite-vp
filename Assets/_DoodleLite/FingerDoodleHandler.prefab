@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2570123062406934362}
-  - component: {fileID: 1329921538034839128}
   - component: {fileID: 4729132800234144104}
+  - component: {fileID: 6548292858203269192}
   m_Layer: 0
   m_Name: FingerDoodleHandler
   m_TagString: Untagged
@@ -33,21 +33,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1329921538034839128
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6949678041992951439}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc71fc8c898c3cd4ca692c9a7605b1ee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  linePrefab: {fileID: 8891724405207237036, guid: 9ae3817e31fc9d84fb7dc46f43a18c01, type: 3}
-  lineWidth: 0.01
-  handGestureHandler: {fileID: 4729132800234144104}
 --- !u!114 &4729132800234144104
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61,3 +46,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pinchThreshold: 0.01
+--- !u!114 &6548292858203269192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6949678041992951439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2a6d005840321c44bd207bb3e787739, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drawingPrefab: {fileID: 8891724405207237036, guid: ece71e307c8fbbd49a99ea2c677e85d4, type: 3}
+  lineWidth: 0.01
+  sides: 6
+  handGestureHandler: {fileID: 4729132800234144104}
