@@ -56,23 +56,37 @@ public class MeshDrawing : MonoBehaviour
         Debug.Log($"StartDrawing: Starting position: {startPosition}");
     }
 
+    [Header("Optimization Settings")]
+    [SerializeField] private int updateThreshold = 5; // Number of points before updating the mesh
+    private int pointsSinceLastUpdate = 0;
+
     public void AddPoint(Vector3 position)
     {
-        if (points.Count > 0 && Vector3.Distance(points[points.Count - 1], position) < lineWidth / 4)
+        if (points.Count > 0 && Vector3.Distance(points[points.Count - 1], position) < lineWidth / 2)
         {
             Debug.Log("AddPoint: Ignored too close point.");
             return;
         }
 
         points.Add(position);
+        pointsSinceLastUpdate++;
 
-        Debug.Log($"AddPoint: Adding point. Position: {position}");
-        UpdateMesh();
+        // Update mesh only when threshold is reached
+        if (pointsSinceLastUpdate >= updateThreshold)
+        {
+            UpdateMesh();
+            pointsSinceLastUpdate = 0; // Reset counter
+        }
     }
 
     public void EndDrawing(Vector3 position)
     {
+        if (pointsSinceLastUpdate > 0)
+        {
+            UpdateMesh(); // Ensure the final points are added
+        }
         currentMesh = null;
+        pointsSinceLastUpdate = 0; // Reset for the next drawing
         Debug.Log("EndDrawing: Drawing ended.");
     }
 
@@ -146,6 +160,8 @@ public class MeshDrawing : MonoBehaviour
         currentMesh.normals = meshNormals.ToArray();
         currentMesh.RecalculateBounds();
         currentMesh.RecalculateNormals();
+
+        currentMesh.Optimize();
     }
 
 }

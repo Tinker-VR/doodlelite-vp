@@ -22,12 +22,11 @@ public class HandGestureHandler : MonoBehaviour
     {
         if (handSubsystem != null)
         {
-            handSubsystem.updatedHands += OnHandDataUpdated;
         }
         else
         {
-            Debug.Log("HandGestureHandler: Searching for HandSubsystem...");
             handSubsystem = GetHandSubsystem();
+            handSubsystem.updatedHands += OnHandDataUpdated;
         }
     }
 
@@ -39,11 +38,9 @@ public class HandGestureHandler : MonoBehaviour
         {
             if (subsystem.running)
             {
-                Debug.Log("HandGestureHandler: Found HandSubsystem.");
                 return subsystem;
             }
         }
-        Debug.LogWarning("HandGestureHandler: No running HandSubsystem found.");
         return null;
     }
 
@@ -53,9 +50,6 @@ public class HandGestureHandler : MonoBehaviour
         {
             hand = subsystem.rightHand;
             bool currentlyPinching = IsPinching(out Vector3 pinchPosition);
-            
-            Debug.Log($"HandGestureHandler: Pinch Update. IsPinching: {currentlyPinching}, PinchPosition: {pinchPosition}");
-
             if (!isPinching && currentlyPinching)
             {
                 isPinching = true;
@@ -75,7 +69,6 @@ public class HandGestureHandler : MonoBehaviour
 
     bool IsPinching(out Vector3 pinchPosition)
     {
-        // Initialize the out parameter
         pinchPosition = Vector3.zero;
 
         if (hand.isTracked)
@@ -89,7 +82,6 @@ public class HandGestureHandler : MonoBehaviour
                 float distance = Vector3.Distance(thumbPose.position, indexPose.position);
                 if (distance < pinchThreshold)
                 {
-                    // Set the pinch position to be used by the caller
                     pinchPosition = (thumbPose.position + indexPose.position) * 0.5f;
                     return true;
                 }
