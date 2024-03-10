@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4410912561129539407}
   - component: {fileID: 841240492948243839}
   m_Layer: 0
-  m_Name: FingerDrawing
+  m_Name: EditorDrawing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

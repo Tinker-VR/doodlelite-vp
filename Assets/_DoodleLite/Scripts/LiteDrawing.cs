@@ -16,9 +16,9 @@ public class LiteDrawing : MonoBehaviour
     {
         if (handGestureHandler != null)
         {
-            handGestureHandler.OnPinchDown += StartDrawing;
-            handGestureHandler.OnPinch += AddPoint;
-            handGestureHandler.OnPinchRelease += EndDrawing;
+            handGestureHandler.OnRightPinchDown += StartDrawing;
+            handGestureHandler.OnRightPinch += AddPoint;
+            handGestureHandler.OnRightPinchRelease += EndDrawing;
             Debug.Log("LiteDrawing: Subscribed to HandGestureHandler events.");
         }
         else
@@ -31,9 +31,9 @@ public class LiteDrawing : MonoBehaviour
     {
         if (handGestureHandler != null)
         {
-            handGestureHandler.OnPinchDown -= StartDrawing;
-            handGestureHandler.OnPinch -= AddPoint;
-            handGestureHandler.OnPinchRelease -= EndDrawing;
+            handGestureHandler.OnRightPinchDown -= StartDrawing;
+            handGestureHandler.OnRightPinch -= AddPoint;
+            handGestureHandler.OnRightPinchRelease -= EndDrawing;
         }
     }
 

@@ -6,54 +6,87 @@ public class MeshDrawing : MonoBehaviour
 {
     [Header("Drawing Settings")]
     [SerializeField] private GameObject drawingPrefab;
-    [SerializeField] private float lineWidth = 0.01f;
+    [SerializeField] [Range(0.001f, .02f)] private float lineWidth = 0.006f;
     [SerializeField] [Range(3, 20)] private int sides = 5;
     
-    [Header("Hand Settings")]
-    [SerializeField] private HandGestureHandler handGestureHandler;
-    
+    private List<GameObject> spawnedDrawings = new List<GameObject>();
+    private List<GameObject> redoDrawings = new List<GameObject>();
+
     private GameObject currentDrawingObject;
     private Mesh currentMesh;
     private List<Vector3> points = new List<Vector3>();
+
+    public static MeshDrawing Instance { get; private set; }
+
     
     private void Awake()
     {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+
+        DontDestroyOnLoad(gameObject);
     }
 
     private void OnEnable()
     {
-        if (handGestureHandler != null)
+        if (HandGestureHandler.Instance != null)
         {
-            handGestureHandler.OnPinchDown += StartDrawing;
-            handGestureHandler.OnPinch += AddPoint;
-            handGestureHandler.OnPinchRelease += EndDrawing;
-            Debug.Log("MeshDrawing: Subscribed to HandGestureHandler events.");
+            HandGestureHandler.Instance.OnRightPinchDown += StartDrawing;
+            HandGestureHandler.Instance.OnRightPinch += AddPoint;
+            HandGestureHandler.Instance.OnRightPinchRelease += EndDrawing;
         }
         else
         {
-            Debug.LogError("MeshDrawing: HandGestureHandler reference is null.");
         }
     }
 
     private void OnDisable()
     {
-        if (handGestureHandler != null)
+        if (HandGestureHandler.Instance != null)
         {
-            handGestureHandler.OnPinchDown -= StartDrawing;
-            handGestureHandler.OnPinch -= AddPoint;
-            handGestureHandler.OnPinchRelease -= EndDrawing;
+            HandGestureHandler.Instance.OnRightPinchDown -= StartDrawing;
+            HandGestureHandler.Instance.OnRightPinch -= AddPoint;
+            HandGestureHandler.Instance.OnRightPinchRelease -= EndDrawing;
         }
     }
 
     public void StartDrawing(Vector3 startPosition)
     {
+        ClearRedoList();
+
         currentDrawingObject = Instantiate(drawingPrefab, Vector3.zero, Quaternion.identity);
         currentMesh = new Mesh();
         currentDrawingObject.GetComponent<MeshFilter>().mesh = currentMesh;
 
+        if(ColorPicker.Instance)
+        {
+            SetBrushColor(ColorPicker.Instance.SelectedColor);
+        }
+
         points.Clear();
         points.Add(startPosition);
-        Debug.Log($"StartDrawing: Starting position: {startPosition}");
+    }
+    
+    public void SetBrushColor(Color color)
+    {
+        if (currentDrawingObject != null)
+        {
+            MeshRenderer renderer = currentDrawingObject.GetComponent<MeshRenderer>();
+            if (renderer != null)
+            {
+                renderer.material.color = color;
+            }
+        }
+    }
+    
+    public void SetBrushSize(float width)
+    {
+        lineWidth = Mathf.Lerp (0.001f, 0.02f, Mathf.InverseLerp (0.2f, 1f, width));
     }
 
     [Header("Optimization Settings")]
@@ -64,7 +97,6 @@ public class MeshDrawing : MonoBehaviour
     {
         if (points.Count > 0 && Vector3.Distance(points[points.Count - 1], position) < lineWidth / 2)
         {
-            Debug.Log("AddPoint: Ignored too close point.");
             return;
         }
 
@@ -85,15 +117,26 @@ public class MeshDrawing : MonoBehaviour
         {
             UpdateMesh(); // Ensure the final points are added
         }
+
+        spawnedDrawings.Add(currentDrawingObject);
+
         currentMesh = null;
+        currentDrawingObject = null;
         pointsSinceLastUpdate = 0; // Reset for the next drawing
-        Debug.Log("EndDrawing: Drawing ended.");
     }
 
     public void EndDrawing()
     {
+        if (pointsSinceLastUpdate > 0)
+        {
+            UpdateMesh(); // Ensure the final points are added
+        }
+
+        spawnedDrawings.Add(currentDrawingObject);
+
         currentMesh = null;
-        Debug.Log("EndDrawing: Drawing ended.");
+        currentDrawingObject = null;
+        pointsSinceLastUpdate = 0; // Reset for the next drawing
     }
 
     private void UpdateMesh()
@@ -164,4 +207,49 @@ public class MeshDrawing : MonoBehaviour
         currentMesh.Optimize();
     }
 
+    public void UndoLastDrawing()
+    {
+        if (spawnedDrawings.Count > 0)
+        {
+            GameObject lastDrawing = spawnedDrawings[spawnedDrawings.Count - 1];
+            spawnedDrawings.RemoveAt(spawnedDrawings.Count - 1);
+
+            lastDrawing.SetActive(false);
+            redoDrawings.Add(lastDrawing);
+        }
+    }
+
+    public void RedoLastDrawing()
+    {
+        if (redoDrawings.Count > 0)
+        {
+            GameObject lastUndoneDrawing = redoDrawings[redoDrawings.Count - 1];
+            redoDrawings.RemoveAt(redoDrawings.Count - 1);
+
+            lastUndoneDrawing.SetActive(true);
+            spawnedDrawings.Add(lastUndoneDrawing);
+        }
+    }
+
+    private void ClearRedoList()
+    {
+        // Optionally, destroy all GameObjects in the redo list
+        foreach (GameObject drawing in redoDrawings)
+        {
+            Destroy(drawing);
+        }
+        redoDrawings.Clear();
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Z)) // Press Z to undo
+    {
+        UndoLastDrawing();
+    }
+    if (Input.GetKeyDown(KeyCode.Y)) // Press Y to redo
+    {
+        RedoLastDrawing();
+    }
+    }
 }

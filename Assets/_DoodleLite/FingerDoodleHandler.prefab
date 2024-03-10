@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2570123062406934362}
   - component: {fileID: 4729132800234144104}
-  - component: {fileID: 6548292858203269192}
+  - component: {fileID: 5097460112432314100}
   m_Layer: 0
   m_Name: FingerDoodleHandler
   m_TagString: Untagged
@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pinchThreshold: 0.01
---- !u!114 &6548292858203269192
+--- !u!114 &5097460112432314100
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -55,10 +55,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 6949678041992951439}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2a6d005840321c44bd207bb3e787739, type: 3}
+  m_Script: {fileID: 11500000, guid: 57c4719356094d64c9ab11556a853485, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  drawingPrefab: {fileID: 8891724405207237036, guid: ece71e307c8fbbd49a99ea2c677e85d4, type: 3}
+  drawingPrefab: {fileID: 8891724405207237036, guid: fb7e21a58ba2de84a84bafa79b5d5df6, type: 3}
   lineWidth: 0.01
   sides: 6
   handGestureHandler: {fileID: 4729132800234144104}
